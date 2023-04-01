@@ -1,35 +1,35 @@
 const shapes = require("./shapes.js");
 const Circle = require("./circle.js");
-
+const Triangle = require('./triangle.js')
+const Square = require('./square.js')
 describe("shaperendered", () => {
   describe("circle", () => {
     it("should return svg for circle",
       () => {
         const shape = new Circle();
-
-        expect(shape.render()).toEqual(
-          `<circle cx="150" cy="100" r="80" fill="blue" />`
+        expect(shape.render('blue')).toEqual(
+          `<circle cx="150" cy="100" r="80" fill="blue"/>`
         );
       });
   });
 
   describe("triangle", () => {
-    it("should return svg for circle",
+    it("should return svg for triangle",
       () => {
-        const shape = new Triangle();
+        const tri = new Triangle();
 
-        expect(shape.render()).toEqual(
-          `<circle cx="150" cy="100" r="80" fill="blue" />`
+        expect(tri.render('blue')).toEqual(
+          `<polygon points="150, 18 244, 182 56, 182" fill="blue"/>`
         );
       });
   });
   describe("square", () => {
-    it("should return svg for circle",
+    it("should return svg for square",
       () => {
-        const shape = new Square();
+        const rect = new Square();
 
-        expect(shape.render()).toEqual(
-          `<circle cx="150" cy="100" r="80" fill="blue" />`
+        expect(rect.render('blue')).toEqual(
+          `<rect x="60" y="10" rx="10" ry="10" width="300" height="300" fill="blue"/>`
         );
       });
   });
